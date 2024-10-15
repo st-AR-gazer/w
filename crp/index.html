@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn.xjk.yt/glob/favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="Custom Replace Profiles" />
+    <meta property="og:description" content="This is a web companion tool to the companion plugin to the replace profiles tool (Auto Alteration) made by Tobias2g" />
+    <meta property="og:url" content="https://www.crp.xjk.yt" />
+    <meta property="og:image" content="https://www.crp.xjk.yt/content/img/og-img-preview.png" />
+</head>
+
+<body>
+    <canvas id="dotCanvas"></canvas>
+
+    <div class="modal">
+        <h1>Custom Replace Profiles</h1>
+        
+        <div id="metadata" style="display: flex; justify-content: space-evenly;">
+            <p><strong>Author:</strong> <span id="author"></span></p>
+            <p><strong>Creation Date:</strong> <span id="creationDate"></span></p>
+            <p><strong>Version:</strong> <span id="version"></span></p>
+        </div>
+        <div style="margin-top: 20px;">
+            <p><strong>Name:</strong> <input type="text" id="nameInput" style="width: 97%;"></p>
+        </div>
+        <p><strong>Description:</strong> <span id="description"></span></p>
+
+        <div id="dropzone" class="dropzone">
+            <p>Drag and drop your JSON file here or click <a href="#" id="uploadButton" style="color: aqua;">here</a></p>
+            <input type="file" id="fileInput" accept=".json" style="display: none;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button id="downloadButton" onclick="downloadFile();" style="width: 48%;">💾 Download C#</button>
+            <button id="copyButton" onclick="copyToClipboard();" style="width: 48%;">📋 Copy C#</button>
+        </div>
+        
+        <textarea class="preview-area" id="jsonArea" style="display: none; margin-top: 20px;"></textarea>
+        <textarea class="preview-area" id="previewArea" style="display: none; margin-top: 20px;"></textarea>
+        <button id="toggleButton" onclick="togglePreview();" style="margin-top: 20px;">Toggle C#</button>
+    </div>    
+    
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.xjk.yt/glob/background-dots.js"></script>
+
+    <script>
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification-message');
+            notification.textContent = message;
+
+            const container = document.getElementById('notificationContainer');
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    container.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
