@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xjk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn.xjk.yt/glob/favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="xjk" />
+    <meta property="og:description" content="A small website for keeping track of the different projects I'm working on." />
+    <meta property="og:url" content="https://www.xjk.yt" />
+    <meta property="og:image" content="https://www.xjk.yt/content/img/og-img-preview.png" />
+</head>
+
+<body>
+    <canvas id="dotCanvas"></canvas>
+
+    <div class="modal">
+        <h1>Projects</h1>
+        <div class="project-container">
+            <div class="project-box">
+                <h2>TrackMania Guide</h2>
+                <p>
+                    A project originally creted by TAS... (Orlando_23), it's a large catalouge of interesting 
+                    and usefull trick as well as qurks in trackmania. The website is currently being worked 
+                    on by (you guessed it) me. 
+                </p>
+                <br>
+                <a href="https://waiting.xjk.yt">TrackMania Guide</a> (the page is currently not up)
+            </div>
+
+            
+            <div class="project-box">
+                <h2>Colorizer</h2>
+                <p>
+                    A tool that allows someone to more easily create linear color codes that can be pasted 
+                    directly into a TrackMania text area (that allows for formatting text). 
+                </p>
+                <br>
+                <a href="https://colorizer.xjk.yt">Colorizer</a>
+            </div>
+
+
+            <div class="project-box">
+                <h2>TrackMania China Download Page</h2>
+                <p>
+                    A small static website that lets the user download the TrackMania China setup file.
+                </p>
+                <br>
+                <a href="https://tm20ch.xjk.yt">TrackMania China</a>
+            </div>
+
+
+            <div class="project-box">
+                <h2>Custom Replace Profiles</h2>
+                <p>
+                    A small companion website that creates a custom replace profile for TrackMania maps, 
+                    that can be used in conjunction with the 'AutoAlteration' tool created by Tobias2g.
+                    A plugin has been made for this exact purpose, so the webside is no longer needed.
+                </p>
+                <br>
+                <a href="https://crp.xjk.yt">Custom Replace Profiles</a>
+            </div>
+
+
+            <div class="project-box">
+                <h2>COTD Style Tracker</h2>
+                <p>
+                    A small companion website that just displays some information about the current 
+                    COTD style in TrackMania. As well as a history of the previous styles. 
+                    <br>
+                    It also has some information regarding the companion plugin used to gather these 
+                    statistics.
+                </p>
+                <br>
+                <a href="https://waiting.xjk.yt">COTD Style Tracker</a> (the page is currently not up)
+            </div>
+        </div>
+    </div>
+
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="https://cdn.xjk.yt/glob/background-dots.js"></script>
+
+    <script>
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification-message');
+            notification.textContent = message;
+        
+            const container = document.getElementById('notificationContainer');
+            container.appendChild(notification);
+        
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+        
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    container.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
