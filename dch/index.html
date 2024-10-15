@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tm2020ch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn.xjk.yt/glob/favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="Download File" />
+    <meta property="og:description" content="A page to download the Chinese version of Trackmania 2020" />
+    <meta property="og:url" content="https://tm2020ch.xjk.yt" />
+    <meta property="og:image" content="https://tm2020ch.xjk.yt/content/img/og-img-preview.png" />
+</head>
+
+<body>
+    <canvas id="dotCanvas"></canvas>
+
+    <div class="modal">
+        <div class="file-info">
+            <div class="file-header">
+                <img src="img/exe.png" alt="File Icon" class="file-icon">
+                <div class="file-details">
+                    <h1>Trackmania2020_Setup_CH.exe</h1>
+                    <p>Executable (.exe)</p>
+                    <p>File size: 1.51 GiB</p>
+                    <p>Platform: Windows</p>
+                    <p>Released: 2020-07-02</p>
+                    <p>Uploaded: 2024-05-13 19:53:49</p>
+
+                    <br>
+
+                    <div class="share-buttons"> 
+                        <button onclick="copyToClipboard();" style="background: transparent; border: hidden;">
+                            <img src="img/link.png" alt="Direct Download Link" style="width: 30px;">
+                        </button>
+                    </div>
+                </div>
+                <button class="download-button" onclick="downloadFileFromURL();">DOWNLOAD (1.51 GiB)</button>
+            </div>
+            <hr>
+            <div class="file-description">
+                <h2>About Trackmania2020 Chinese edition</h2>
+                <div class="description-content">
+                    <div class="description-text">
+                        <p>
+                            The Chinese edition of Trackmania2020 (赛道狂飙) was designed specifically for Chinese players. 
+                            Initially available on the Chinese <a href="https://cn.trackmania.com/">Trackmania website</a> 
+                            <a href="https://web.archive.org/web/20230519101843/https://cn.trackmania.com/">(archive.org)</a>, 
+                            the page has since been taken down, and the game is no longer available for download.
+                            <br><br>
+                            This edition had its own servers, supported legacy logins and usernames, offline accounts, 
+                            and customizable usernames. However, only the Summer 2020 campaign and training campaign 
+                            maps are playable now. Custom maps can be played using command-line options, but only those 
+                            from around that time. There are also some texture differences in this version.
+                            <br><br>
+                            Despite these limitations, the game is still playable and enjoyable for those interested.
+                        </p>
+                    </div>
+
+
+                    <script>
+                        function swapImages() {
+                            const img1 = document.querySelector(".image-before");
+                            const img2 = document.querySelector(".image-after");
+                            const bigChina = "img/CHINA - china - big.webp";
+                            const wideChina = "img/CHINA - china - wide.webp";
+                            const bigInternational = "img/CHINA - international - big.webp";
+                            const wideInternational = "img/CHINA - international - wide.webp";
+                            
+                            if (img1.src.includes("big")) {
+                                img1.src = wideChina;
+                                img2.src = wideInternational;
+                            } else {
+                                img1.src = bigChina;
+                                img2.src = bigInternational;
+                            }
+                        }
+                    </script>
+
+                    <div class="description-images" style="margin-top: -60px;">
+                        <div style="display: flex; align-items: center;">
+                            <h4>There are some texture differences between the two versions, here they are:</h4>
+                            <button onclick="swapImages();" class="btn">Swap Images</button>
+                        </div>
+
+                        <div class="container">
+                            <div class="image-container">
+                            <img class="image-before slider-image" src="img/CHINA - china - wide.webp" alt="color photo"/>
+                            <img class="image-after slider-image" src="img/CHINA - international - wide.webp" alt="black and white"/>
+                            </div>
+                            <!-- step="10" -->
+                            <input type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown" class="slider"/>
+                            <div class="slider-line" aria-hidden="true"></div>
+                            <div class="slider-button" aria-hidden="true"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"> 
+                                    <rect width="256" height="256" fill="none"></rect> 
+                                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" ></line> 
+                                    <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" ></line> 
+                                    <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" ></polyline> 
+                                    <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" ></line> 
+                                    <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" ></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.xjk.yt/glob/background-dots.js"></script>
+
+    <script>
+        function copyToClipboard() {
+            const directLink = "https://cdn.xjk.yt/tm2020-ch/Trackmania2020_Setup_CH.exe";
+
+            navigator.clipboard.writeText(directLink).then(() => {
+                showNotification("Direct link copied to clipboard!");
+            });
+        }
+
+        function downloadFileFromURL() {
+            const fileURL = "https://cdn.xjk.yt/tm2020-ch/Trackmania2020_Setup_CH.exe";
+
+            const a = document.createElement('a');
+            a.href = fileURL;
+            a.download = 'Trackmania2020_Setup_CH.exe';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            showNotification("File is being downloaded!");
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification-message');
+            notification.textContent = message;
+
+            const container = document.getElementById('notificationContainer');
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    container.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+
+        const container = document.querySelector('.container');
+        document.querySelector('.slider').addEventListener('input', (e) => {
+            container.style.setProperty('--position', `${e.target.value}%`);
+        })
+    </script>
+</body>
+</html>
